@@ -1,0 +1,11 @@
+# CODEOWNERS — this file exists but is NOT enforced
+# because require_code_owner_reviews is disabled on branch protection.
+# GhostGates GHOST-BP-003 will detect this gap.
+
+# Default owners
+*       @infosechack-labs/platform-team
+
+# Sensitive paths
+/.github/   @infosechack-labs/security-team
+/deploy/    @infosechack-labs/security-team
+/infra/     @infosechack-labs/platform-team

@@ -1,0 +1,24 @@
+name: Deploy Unsafe
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo "Deploying to staging..."
+
+  call-external:
+    uses: some-other-org/shared-workflows/.github/workflows/deploy.yml@main
+    secrets: inherit

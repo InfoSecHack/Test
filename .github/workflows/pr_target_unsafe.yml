@@ -1,0 +1,17 @@
+name: Auto Label PR
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions: write-all
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: |
+          echo "Labeling PR based on changed files"
+          npm install && node scripts/label.js
